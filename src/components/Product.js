@@ -1,9 +1,10 @@
+// Code Product Component Here
 import React from 'react';
 import PropTypes from 'prop-types';
 
 class Product extends React.Component {
   render() {
-    return(
+    return (
       <ul>
         <li>Name: {this.props.name}</li>
         <li>Producer: {this.props.producer}</li>
@@ -14,7 +15,6 @@ class Product extends React.Component {
     )
   }
 }
-
 Product.defaultProps = {
   hasWatermark: false
 }
@@ -22,23 +22,26 @@ Product.defaultProps = {
 Product.propTypes = {
   name: PropTypes.string.isRequired,
   producer: PropTypes.string,
-  hasWatermakr: PropTypes.bool,
+  hasWatermark: PropTypes.bool,
   color: PropTypes.oneOf(['white', 'eggshell-white', 'salmon']).isRequired,
   weight: weightRange
 }
 
 function weightRange(props, propName, componentName) {
   componentName = componentName || 'ANONYMOUS';
-  if(props[propName]) {
+  if (props[propName]) {
     let value = props[propName]
     if (typeof value === 'number') {
-      return (value >= 80 && value <= 300) ? null : new Error(propName + ' in ' + componentName + " is not withing 80 and 300")
-    } else {
+      return (value >= 80 && value <= 300) ? null : new Error(propName + ' in ' + componentName + " is not within 80 to 300")
+    }
+    else {
       return (new Error(propName + ' in ' + componentName + " is not a number"))
     }
-  } else {
-    return (new Error(propName + ' in ' + componentName + " is required"))
   }
+  else {
+    return ( new Error(propName + ' in ' + componentName + " is required"))
+  }
+  // return null
 }
 
-export default Product;
+export default Product
