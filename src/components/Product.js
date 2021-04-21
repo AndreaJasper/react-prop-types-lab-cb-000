@@ -15,7 +15,7 @@ class Product extends React.Component {
   }
 }
 
-roduct.defaultProps = {
+Product.defaultProps = {
   hasWatermark: false
 }
 
